@@ -5,6 +5,7 @@
 using namespace std;
 
 void swapLexical(string* str1, string* str2) {
+	//! Only check the first letter
 	if ((int) (*str1)[0] > (int) (*str2)[0]) {
 		swap(*str1, *str2);
 	}
