@@ -1,0 +1,71 @@
+set = [2,4,5]
+pairs = []
+missing = []
+all_possible = []
+s_missing = []
+r_missing = []
+
+def exists(invPair):
+    for pair in pairs:
+        if pair == invPair:
+            return True
+    return False
+
+for i in range(len(set)):
+    for j in range(len(set)):
+        if pow(set[i], set[j]) > 16:
+            pairs.append([set[i],set[j]])
+
+for i in range(len(set)):
+    for j in range(len(set)):
+        if pow(set[i], set[j]) <= 16:
+            all_possible.append([set[i],set[j]])
+
+print("all pairs by set")
+for pair in pairs:
+    print(pair)
+print()
+
+for i in range(len(pairs)):
+    exists([pairs[i][1], pairs[i][0]])
+
+for i in (set):
+    if not exists([i,i]):
+        missing.append([i,i])
+
+for pair in missing:
+    pairs.append(pair)
+    if pair[0] == pair[1]:
+        r_missing.append(pair)
+    else:
+        s_missing.append(pair)
+
+# print("all pairs")
+# for pair in pairs:
+#     print(pair)
+# print()
+
+pairs.sort()
+
+print("all pairs sorted\n[")
+for pair in pairs:
+    print(pair)
+print("]")
+
+print("\nreflexive missing:\n[")
+for pair in r_missing:
+    print(pair)
+print("]")
+
+print("\nsimetric missing")
+for pair in s_missing:
+    print(pair)
+print()
+
+print("Transitive missing\n[")
+for pair in all_possible:
+    print(pair)
+print("]")
+
+
+
